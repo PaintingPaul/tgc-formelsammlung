@@ -1,0 +1,130 @@
+\documentclass[a4paper,11pt]{article}
+
+% Sprache/Umlaute
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Mathematik
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\usepackage{braket}
+
+%Physik, Chemie
+\usepackage{physics}
+\usepackage{siunitx}
+\sisetup{
+  exponent-product = \cdot
+}
+\usepackage[version=4]{mhchem}
+\usepackage{nicefrac}
+
+% Seitenlayout
+\usepackage[a4paper]{geometry}
+\geometry{
+  a4paper,
+  left=25mm,
+  right=25mm,
+  top=25mm,
+  bottom=25mm,
+}
+% -------- Absätze ------------
+\setlength{\parskip}{6pt}
+
+\setlength{\emergencystretch}{3em}
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}%
+  \setlength{\parskip}{0pt}}
+
+%Stil
+\usepackage{enumitem}
+\usepackage{titlesec}
+\titleformat{\subsection}
+{\normalfont}
+{}
+{0pt}
+{}
+
+% Häufige Operatoren
+\newcommand{\Lx}{\hat L_x}
+\newcommand{\Ly}{\hat L_y}
+\newcommand{\Lz}{\hat L_z}
+\newcommand{\Lsq}{\hat L^2}
+
+\newcommand{\px}{\hat p_x}
+\newcommand{\py}{\hat p_y}
+\newcommand{\pz}{\hat p_z}
+
+\newcommand{\Lp}{\hat L_+}
+\newcommand{\Lm}{\hat L_-}
+
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\hb}{\hbar}
+
+\begin{document}
+\section{Allgemeines}
+
+\subsection*{Grundlagen:}
+\begin{itemize}[label=--]
+    \item $ E = h \nu$
+    \item $\lambda \nu = c$
+    \item $h = \SI{6.626e-34}{\joule\second}$
+    \item $\hbar = \frac{h}{2\pi} =\SI{1.1e-34}{\joule\second}$
+    \item $\ce{\unit{\eV} <=>[\cdot \num{1.6e-19}][\colon \num{1.6e-19}] \unit{\joule}}$
+\end{itemize}
+
+\subsection*{De Broglie Beziehung:}
+\begin{itemize}[label=--]
+    \item $p = \frac{h}{\lambda}$
+    \begin{itemize}[label= --]
+        \item $m=0 \Rightarrow E = pc = h \nu$
+        \item $m > 0\Rightarrow E = \underbrace{mc^2 + \frac{p^2}{2m}}_{\text{klassisch}} \underbrace{- \frac{p^4}{8m^3c^2}}_{\text{relativistisch}}$
+    \end{itemize}
+    \item Der Impuls masseloser Teilchen kann nur indirekt (z.B. über Compont-Experiment) bestimmt werden
+    \item Korrespondenzprinzip: Für große Teilchen/Energien muss Übergang von QM in klassische Mechanik erfolgen
+\end{itemize}
+
+\subsection*{Schrödingergleichung:}
+
+\begin{itemize}
+    \item Zeitunabhängige Schrödingergleichung $ \ii \hb \pdv{}{t}\Psi(x,t) = \hat H \Psi(x,t) $
+\end{itemize}
+
+\subsection*{Drehimpuls}
+
+\begin{itemize}
+  \item Definition: $\vec{L} = \vec{r} \cross \vec{p}
+  = \begin{pmatrix} \hat{x} \\ \hat{y} \\ \hat{z} \end{pmatrix} \cross \begin{pmatrix} \hat{p}_x \\ \hat{p}_y \\ \hat{p}_z \end{pmatrix}
+  = \begin{pmatrix} yp_z - zp_y \\ zp_x - xp_z \\ xp_y - yp_x \end{pmatrix}
+  = \begin{pmatrix} \hat{L}_x \\ \hat{L}_y \\ \hat{L}_z \end{pmatrix} $ 
+  \item Betragsquadrat des Drehimpulses: $\hat{L}^2 = \hat{L}_x^2 + \hat{L}_y^2 + \hat{L}_z^2$
+  \item Kommutatoren:
+  \begin{itemize}
+    \item $[\hat{L}^2, \hat{L}_x] = [\hat{L}^2, \hat{L}_y] = [\hat{L}^2, \hat{L}_z] = 0$
+    \item $[\hat{L}_x, \hat{L}_y] = \ii\hb\hat{L}_z \qquad [\hat{L}_z, \hat{L}_x] = \ii\hb\hat{L}_y \qquad [\hat{L}_y, \hat{L}_z] = \ii\hb\hat{L}_x$ \qquad \footnotesize{Immer x,y,z als Reihenfolge}
+  \end{itemize}
+  \item Gemeinsame Eigenfunktionen von $\hat{L}^2$ und $\hat{L}_z$:
+  \begin{itemize}
+    \item Kugelflächenfunktionen: $\ket{l, m_l} \equiv Y_{l, m_l}P_{l,m_l}(\cos(\vartheta))\mathrm{e}^{\ii m_l \varphi}$
+    \begin{itemize}
+      \item $N_{l,m_l}$ ist die Normierungskonstante
+      \item $P_{l,m_l}$ ist ein zugeordnetes Legendre-Polynom
+    \end{itemize}
+    \item Bahndrehimpulsquantenzahl $l$: $l = 1,2,3, \dots $ (s-, p-, d-, f- Orbital)
+    \item magnetische Bahndreimpuls-QZ $m_l$: $m_l \in {-l, -l+1, \dots, l}$
+    \begin{itemize}
+      \item $m_l$ gibt die z-Komponente von $l$ an $\rightarrow$ führt bei $l=1$ zu den p-Orbitalen
+      \item Entartungsgrad ohne äußeres Magnetfeld: $2l +1$ \footnote{Gibt es ein Symbol für den Entartungsgrad?}
+    \end{itemize}
+    \item Eigenwerte: $\hat{L}^2\ket{l,m_l} = \hb^2 l(l+1)\ket{l, m_l} \qquad \hat{L}_z \ket{l, m_l} = \hb m_l \ket{l,m_l}$
+  \end{itemize}
+  \item Auf-/Absteigeoperatoren:
+  \begin{itemize}
+    \item $\hat{L}_+ = \hat{L}_x + \ii \hat{L}_y$ \quad und \quad $\hat{L}_- = \hat{L}_x - \ii \hat{L}_y$
+    \item Wirkung: $\hat{L}_\pm \ket{l,m_l} = \hb \sqrt{l(l+1) - m_l(m_l \color{red}\pm 1 \color{black})}\ket{l, m_l \color{red} \pm 1}$
+    \item Verbotene Zustände: $\hat{L}_+ \ket{l, +l} = 0$ \quad und \quad $\hat{L}_-\ket{l,-l}=0$
+  \end{itemize}
+\end{itemize}
+
+
+\end{document}
