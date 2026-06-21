@@ -46,6 +46,7 @@
 {}
 
 % Häufige Operatoren
+%% Drehimpuls
 \newcommand{\Lx}{\hat L_x}
 \newcommand{\Ly}{\hat L_y}
 \newcommand{\Lz}{\hat L_z}
@@ -57,6 +58,16 @@
 
 \newcommand{\Lp}{\hat L_+}
 \newcommand{\Lm}{\hat L_-}
+
+%% Spin
+\newcommand{\Sx}{\hat S_x}
+\newcommand{\Sy}{\hat S_y}
+\newcommand{\Sz}{\hat S_z}
+\newcommand{\Ssq}{\hat S^2}
+
+\newcommand{\Sp}{\hat S_+}
+\newcommand{\Sm}{\hat S_-}
+
 
 \newcommand{\ii}{\mathrm{i}}
 \newcommand{\hb}{\hbar}
@@ -110,7 +121,7 @@
       \item $N_{l,m_l}$ ist die Normierungskonstante
       \item $P_{l,m_l}$ ist ein zugeordnetes Legendre-Polynom
     \end{itemize}
-    \item Bahndrehimpulsquantenzahl $l$: $l = 1,2,3, \dots $ (s-, p-, d-, f- Orbital)
+    \item Bahndrehimpulsquantenzahl $l$: $l = 0,1,2,3, \dots $ (s-, p-, d-, f- Orbital)
     \item magnetische Bahndreimpuls-QZ $m_l$: $m_l \in {-l, -l+1, \dots, l}$
     \begin{itemize}
       \item $m_l$ gibt die z-Komponente von $l$ an $\rightarrow$ führt bei $l=1$ zu den p-Orbitalen
@@ -125,6 +136,63 @@
     \item Verbotene Zustände: $\hat{L}_+ \ket{l, +l} = 0$ \quad und \quad $\hat{L}_-\ket{l,-l}=0$
   \end{itemize}
 \end{itemize}
+
+\subsection*{Spin}
+
+\begin{itemize}
+\item Eigenschaften analog zum Bahndrehimpuls
+\item Betragsquadrat: $\hat S^2 = \hat S_x^2+\hat S_y^2+\hat S_z^2$
+\item Kommutatoren:
+\begin{itemize}
+\item $[\hat S^2,\hat S_x]=[\hat S^2,\hat S_y]=[\hat S^2,\hat S_z]=0$
+\item $[\hat S_x,\hat S_y]=\ii\hb\hat S_z \qquad [\hat S_z,\hat S_x]=\ii\hb\hat S_y \qquad [\hat S_y,\hat S_z]=\ii\hb\hat S_x$
+\end{itemize}
+\item Eigenzustände: $\ket{s,m_s}$
+\item Spinquantenzahl: $s=0,\frac12,1,\frac32,\dots$
+\begin{itemize}
+  \item Fermionen: $s=\frac{1}{2}, \frac{3}{2}, \dots$ $\rightarrow$ halbzahlig
+  \item Bosonen: $s = 0,1,2,\dots$ $\rightarrow$ ganzzahlig
+\end{itemize}
+\item magnetische Spinquantenzahl: $m_s \in {-s,-s+1,\dots,s}$
+\item Entartungsgrad: $g=2s+1$
+\item Eigenwerte: $\hat S^2\ket{s,m_s}=\hb^2s(s+1)\ket{s,m_s}$ \quad und \quad $\hat S_z\ket{s,m_s}=\hb m_s\ket{s,m_s}$
+\item Auf-/Absteigeoperatoren:
+\begin{itemize}
+\item $\hat S_+=\hat S_x+\ii\hat S_y \qquad \hat S_-=\hat S_x-\ii\hat S_y$
+\item $\hat{S}_\pm \ket{s,m_s} = \hb \sqrt{s(s+1) - m_s(m_s \color{red}\pm 1 \color{black})}\ket{s, m_s \color{red} \pm 1}$
+\item $\hat S_+\ket{s,s}=0 \qquad \hat S_-\ket{s,-s}=0$
+\end{itemize}
+\item Elektron: $s=\frac12$, $m_s=\pm\frac12$, $\chi_\pm \equiv \ket{\frac12,\pm\frac12}$
+\end{itemize}
+
+\clearpage
+\subsection*{Drehimpulskopplung}
+\quad $\rightarrow$ gilt für Spin-Bahn oder Spin-Spin Kopplung. Bei Spin-Spin Kopplung gilt: $\hat J \equiv \hat S$ etc. 
+
+\begin{itemize}
+\item Gesamtdrehimpuls: $\hat J=\hat J_1+\hat J_2$
+\item mögliche Quantenzahlen: $J=j_1+j_2, j_1+j_2-1, \dots,|j_1-j_2|$
+\item Projektionen: $m_J=-J,-J+1,\dots,J$
+\item Entartungsgrad: $g_J=2J+1$
+\begin{itemize}
+  \item Kontrolle: $\sum_J(2J+1)=(2j_1+1)(2j_2+1) $
+\end{itemize}
+\item Spin-Bahn-Kopplung: $j=l+s,\dots,|l-s|$
+\item Für Elektronen ($s=\frac12$): $j=l\pm\frac12$
+\item Häufigkeiten bzgl. $m_J$: alle möglichen Summen $m_J=m_1+m_2$ bilden; gleiche Summen zählen
+\item Operatoren mit Index wirken nur auf den jeweiligen Zustand:
+
+\begin{itemize}
+  \item $\hat S_{1}^{2}\ket{s_1,m_1}\ket{s_2,m_2} = \hb^2s_1(s_1+1)\ket{s_1,m_1}\ket{s_2,m_2}$
+  \item $\hat S_{+,1}\ket{s_1,m_1}\ket{s_2,m_2} = (\hat S_{+,1}\ket{s_1,m_1})\ket{s_2,m_2} $  
+\end{itemize}
+
+
+\end{itemize}
+
+
+
+
 
 
 \end{document}
